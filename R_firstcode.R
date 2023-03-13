@@ -11,10 +11,10 @@ library(raster)
 library(raster)
 setwd("C:/Telerilevamento_lab")
 getwd()
-l2011<-brick("p224r63_2011_masked.grd")
-plot(l2011)
+l2011<-brick("p224r63_2011_masked.grd")      #associazione (brick -> l2011)
+plot(l2011)                                  #l2011 "plottaggio" delle carte
 cl <- colorRampPalette(c("red","orange","yellow")) (100)    #per cambiare i colori, abbiamo 3 colori di base e le diverse sfumature
-plot(l2011,col=cl) 
+plot(l2011,col=cl)                       #abbinare il cambio di colori alle carte, assieme alle 100 sfumature diverse
 
 #plotting one element
 plot(l2011[[4]], col=cl)
