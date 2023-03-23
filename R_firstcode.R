@@ -84,25 +84,67 @@ library(raster)
 setwd("C:/Telerilevamento_lab")
 l2011 <- brick ("p224r63_2011_masked.grd")
 #faremo una immagine a colori naturali, associamo ad ogni componente la banda corrispondente.
-#RGB plotting, plottiamo un raster con le tre componenti di colore.Per aver informazioni sulle funzioni digita prima della funzione stessa: ?     Alla componente 3 diamo la banda numero 3, alla verde la 2, alla blu la 1.
+#RGB plotting, plottiamo un raster con le tre componenti di colore. Per aver informazioni sulle funzioni digita prima della funzione stessa: ?     Alla componente 3 diamo la banda numero 3, alla verde la 2, alla blu la 1.
 #strecht per allargare il più possibile la scala di colore lineare.
 plotRGB(l2011, r=3, g=2, b=1, stretch="Lin") #plot09
 #Ora evidenziamo la vegetazione (usiamo una delle bande che identifichi al meglio la vegetazione, useremo l'infrarosso (banda numero4) per evidenziare la vegetazione)
 plotRGB(l2011, r=4, g=3, b=2, stretch="Lin") #plot10  #tutto quello che riflette molto nella banda numero 4 (infrarossso) diventerà rosso.
-plotRGB(l2011, r=3, g=4, b=2, stretch="Lin") #plot11  #per mostrare l'infrarosso in verde  enon con il rosso
+plotRGB(l2011, r=3, g=4, b=2, stretch="Lin") #plot11  #per mostrare l'infrarosso in verde e non con il rosso
 plotRGB(l2011, r=3, g=2, b=4, stretch="Lin")  #plot12 per mostrare l'infrarosso in blue
 
 #Multiframe with natural and false colours per vedere i due plot confrontati.
 par(mfrow=c(2,1))
-plotRGB(l2011, r=3, g=2, b=1, stretch="Lin")
+plotRGB(l2011, r=3, g=2, b=1, stretch="Lin")    #R,G e B sono i tre filtri (rosso,verde e blu)
 plotRGB(l2011, r=4, g=3, b=2, stretch="Lin")   #plot13
 
 #Histogram stretching Hist al posto di lin
 par(mfrow=c(2,1))
-plotRGB(l2011, r=3, g=2, b=1, stretch="Hist")
+plotRGB(l2011, r=3, g=2, b=1, stretch="Hist")    #1=blu, 2=verde, 3=rosso, 4=infrarosso
 plotRGB(l2011, r=4, g=3, b=2, stretch="Hist")  #plot14
 
 #Lin vs Hist
 par(mfrow=c(2,1))
-plotRGB(l2011, r=4, g=3, b=2, stretch="Hist")
-plotRGB(l2011, r=4, g=3, b=2, stretch="Lin")   #plot15
+plotRGB(l2011, r=4, g=3, b=2, stretch="Hist")    #l2011 è il nome dell'immagine, lo strecht aumenta la gamma di colori visualizzabili
+iplotRGB(l2011, r=4, g=3, b=2, stretch="Lin")   #plot15
+
+
+#giorno 23/03/23
+library(raster)
+setwd("C:/Telerilevamento_lab")
+getwd()
+l2011<-brick("p224r63_2011_masked.grd")   
+l2011 #digitare l2011 per avere informazioni (dimensione,fuso, pixel ecc..)
+#Exercise: plot per plottare una delle n bande a disposizione
+plot(l2011[[4]])   #plot16 (l'avevi già ottenuto)  #la parentesi quadra svolge lo stesso compito del $
+
+
+#Tutto ciò che hai scritto fin'ora nel giorno 23 l'avvei già fatto
+
+#Ora useremo l'immagine del 1988, dovremo importare l'immagine
+#brick crea un raster object
+l1988 <- brick("p224r63_1988_masked.grd")  #associo il nome l1988
+
+#Exercise: plot in RGB space (natural colours) del 1988
+plotRGB(l1988, r=3,g=2,b=1, stretch="Lin") #plot17 #estrarre mappa del 1988 in RGB con colori naturali
+plotRGB(l1988, r=4,g=3,b=2, stretch="Lin") #plot18    #RGB dell'88 con componente red ad infrarossi
+plotRGB(l1988, 4,3,2, stretch="Lin")   #togliendo le lettere:r,g e b non cambia niente -> basta tenere i numeri
+
+#multiframe immagine dell'88 sopra e quella del 2011 sotto, usando due righe e una colonna
+par(mfrow=c(2,1))  #apre un nuovo plot grafico 
+plotRGB(l1988, 4,3,2, stretch="Lin")
+plotRGB(l2011, 4,3,2, stretch="Lin")    #plot19
+
+dev.off()    #per chiudere il plot ottenuto in precedenza
+#usiamo un altro tipo di stretch: al posto di Lin -> Hist. Hist fa uno stretch "più forte"
+plotRGB(l1988, 4,3,2, stretch="Hist")  #plot20
+
+par(mfrow=c(2,2))   #ottenere un plot con 4 mappe (2x2) utilizzando 2 stretch differenti e due ortofoto di età differente
+plotRGB(l1988, 4,3,2,stretch="Lin")
+plotRGB(l1988, 4,3,2, stretch="Hist")
+plotRGB(l2011, 4,3,2, stretch="Lin"))
+plotRGB(l2011, 4,3,2, stretch="Hist"))   #plot21
+
+
+
+
+
