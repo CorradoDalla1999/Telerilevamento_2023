@@ -54,3 +54,40 @@ cl <- colorRampPalette(c("blue","light blue","pink","red"))(100) #cambio la scal
 plot(TGr, col=cl) #plot38
 
 #analisi multitemporale della variazione dei dati (di ossidi di azoto) en nel tempo (variazione degli ossidi di azoto in Europa
+
+#giorno 13/04/23
+#non selezioneremo la cartella lab ma la cartella en
+library(raster)
+setwd("C:/Telerilevamento_lab/en")
+getwd()
+
+#importing a file (uno di tutti quelli che abbiamo)
+#per portare i file all'interno di R si usa brick (quando ho ad esempio un immagine satellitare a piu strati) o raster (se si tratta di un immagine a singolo strato)
+en_first <- raster("EN_0001.png")  #importiamo il singolo layer di en
+cl <- colorRampPalette(c("red","orange","yellow"))(100)
+plot(en_first, col=cl)   #plot39
+
+rlist <- list.files(pattern="EN")   #chiamo la lista di file EN, è la lista di tutti i 13 file
+rlist
+import <- lapply(rlist, raster)   #lapply che applica un altra funzione (raster) alla lista dei 13 file
+import
+EN <- stack(import)             #compatto i 13 file in un unico file
+EN
+plot(EN, col=cl)    #plot40
+
+par(mfrow=c(1,2))  
+plot(en_first, col=cl)
+plot(EN[[1]], col=cl)   #plot41
+
+
+#differenza tra la prima immagine  ela seconda 
+difcheck <- en_first - EN[[1]]
+difcheck
+plot(difcheck)  #plot41
+
+difen = EN[[1]]-EN[[13]]
+cldif <- colorRampPalette(c('blue','white','red')) (100)  #plot42
+
+#fare un plot red/green/blue con 3 elementi: rgb scheme. Sulla componente red il primo elemento, sulla componente green valori intermedi e nella componente blu la 13esima immagine.
+plotRGB(EN, r=1, g=7, b=13, stretch="Lin")   #plot43
+plotRGB(EN, r01, g=7, b=13, stretch="Hist")  #plot44
