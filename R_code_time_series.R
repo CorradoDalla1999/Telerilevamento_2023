@@ -83,11 +83,16 @@ plot(EN[[1]], col=cl)   #plot41
 #differenza tra la prima immagine  ela seconda 
 difcheck <- en_first - EN[[1]]
 difcheck
-plot(difcheck)  #plot41
+plot(difcheck)  
+
+par(mfrow=c(1,2))
+plot(EN[[1]], col=cl)
+plot(EN[[13]], col=cl)   #plot42
 
 difen = EN[[1]]-EN[[13]]
 cldif <- colorRampPalette(c('blue','white','red')) (100)  #plot42
+plot(difen, col=cldif)  #plot43
 
 #fare un plot red/green/blue con 3 elementi: rgb scheme. Sulla componente red il primo elemento, sulla componente green valori intermedi e nella componente blu la 13esima immagine.
-plotRGB(EN, r=1, g=7, b=13, stretch="Lin")   #plot43
-plotRGB(EN, r01, g=7, b=13, stretch="Hist")  #plot44
+plotRGB(EN, r=1, g=7, b=13, stretch="Lin")   #plot44
+plotRGB(EN, r01, g=7, b=13, stretch="Hist")  #plot45
