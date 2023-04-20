@@ -25,3 +25,40 @@ frequencies   #frequenze delle 3 classi
 tot = 2221440
 percentages = frequencies * 100 /  tot    
 percentages #per vedere il risultato
+
+
+#giorno 20/04/23
+#concetti di classificiazione sul Gran Canyon
+library(raster)
+setwd("C:/Telerilevamento_lab")
+#caricamento dell'immagine
+gc <- brick("dolansprings_oli_2013088_canyon_lrg.jpg")
+gc
+plotRGB(gc, 1,2,3, stretch="Lin")  #plot49
+#Ora ritaglieremo l'immagine (peserà meno), disegneremo un rettangolo nell'immagine per ritagliarlo (utilizzeremo crop)
+gcc <- crop(gc, drawExtent())
+plotRGB(gcc, 1,2,3, stretch="Lin")  #plot50  #Immagine ritagliata
+ncell(gcc) #numero di pixel dell'immagine ritagliata
+
+#tirare fuori i valori dei pixel (catturare i valori dei pixel dell'immagine ritagliata):
+singlenr <- getValues(gcc)
+singlenr
+#classificazione -> associa ad ogni pixel incognito una classe (scegliamo 3 classi)
+kcluster <- kmeans(singlenr, centers=3)  
+kcluster
+gcclass <- setValues(gcc[[1]], kcluster$cluster) # i valori vengono associati ad una immagine. il simblo del dollaro unise due funzioni
+plot(gcclass)   #plot51
+#classe 1: rocce vulcaniche
+#classe 2: arenarie
+#classe 3: conglomerati
+#calcolo frequenze di queste classi: numero di pixel per ogni classe
+frequencies <- freq(gcclass)
+frequencies
+#estraiamo il totale
+total=ncell (gcclass)
+total
+percentages = frequencies * 100 /  total    
+percentages #per vedere il risultato
+
+
+
