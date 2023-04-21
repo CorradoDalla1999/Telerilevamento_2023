@@ -59,6 +59,9 @@ total=ncell (gcclass)
 total
 percentages = frequencies * 100 /  total    
 percentages #per vedere il risultato
+install.packages("ggplot2")   #installazione
+
+
 
 
 
