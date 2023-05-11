@@ -2,7 +2,7 @@
 library(raster)
 
 install.packages("ncdf4")   #installazione 
-library(ncdf4)              #abbiamo la library appen ainstallata
+library(ncdf4)              #abbiamo la library appena installata, serve a importare il dataset
 library(ggplot2)            
 library(viridis)
 setwd("C:/Telerilevamento_lab")
@@ -10,11 +10,11 @@ setwd("C:/Telerilevamento_lab")
 # register and download data from, dobbiamo scegliere la variabile a noi interessata 
 # https://land.copernicus.vgt.vito.be/PDF/portal/Application.html  #sito dal quale scaricheremo i dati (valori a 8 bit)
 #dataset che userò: c_gls_BA300_202105010000_GLOBE_S3_V3.0.1.nc   (è sulla distrubuzione spaziale degli incendi)
-ssoil <- raster("~/Downloads/c_gls_SSM1km_202305090000_CEURO_S1CSAR_V1.2.1.nc")
+fd <- raster("c_gls_BA300_202105010000_GLOBE_S3_V3.0.1.nc")   #fd sta per fire distribution
 
-ssoil
 
-plot(ssoil)
+fd
+plot(fd)
 
 ggplot() +
 + geom_raster(ssoil, mapping=aes(x=x, y=y, fill=Surface.Soil.Moisture))
