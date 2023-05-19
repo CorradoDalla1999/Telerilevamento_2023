@@ -1,0 +1,52 @@
+#giorno 19/05/23
+#come si fa a sviluppare una funzione da zero?
+
+greet <- function() {
+  print("Hello world")
+}
+greet()
+  
+greet_me <- function(name) {
+  greet_string <- paste("Hello",name, sep="")
+  print(greet_string)
+}
+  greet_me("Corrado")
+  
+  add_two <- function(num=0){
+  n_plus_two <- num + 2
+  return(n_plus_two)
+}
+n <- add_two(3)
+n
+#stiamo inventando funzioni con un valore di default (es. duccio)
+
+n <-3
+if(n<10){
+  print("n è minore di 10")
+}
+
+#ora non succederà nulla poichè la funzione è falsa
+n <- 12
+if(n<10){
+  print("n è minore di 10")
+}
+
+
+ if(n<10) {
+    print("n è minore di 10")
+  }else if(n>10){
+    print("n è maggiore di 10")
+  } else {
+    print("n è uguale a 10")
+  }
+  
+  
+  ad_two <- function(num = 0) {
+  if(!is.numeric(num)) stop("num non è numerico")
+  warning("num ha valore NA)
+  n_plus_two <- num + 2
+  return(n_plus_two)
+  }
+  
+  
+
