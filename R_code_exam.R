@@ -191,3 +191,64 @@ p1 <- ggplot (percentages, aes (x=cover, y=percent, color=cover)) + geom_bar (st
 
 p2 <- ggplot (percentages, aes (x=cover, y=percent, color=cover)) + geom_bar (stat="identity", fill= "beige") + labs(title= "Perito_2023")
 
+p1 + p2
+
+#PER AIUTARE I DALTONICI MOSTRO LE STESSE IMMAGINI CON VIRIDIS
+library(raster)
+
+library(ggplot2)
+
+library(viridis)
+
+setwd("C:/Telerilevamento_lab")
+
+Perito17 <- brick ("Perito17_.png")
+
+Perito17
+
+plot(Perito17)
+
+Perito1 <- stack(Perito17[[1]], Perito17[[2]], Perito17[[3]])
+
+plot(Perito1)
+
+sample <- sampleRandom(Perito1, 10000)
+
+pca1 <- prcomp(sample)
+
+pca1
+
+pci1 <- predict(Perito1, pca1, index=c(1:2))
+
+plot(pci1[[1]])
+
+pcid <- as.data.frame(pci1[[1]], xy=T)
+ggplot() + geom_raster(pcid, mapping = aes(x=x, y=y, fill=PC1)) +
+  scale_fill_viridis() + ggtitle("Perito17_viridis")
+
+
+Perito23 <- brick ("Perito23_.png")
+
+Perito23
+
+plot(Perito23)
+
+Perito2 <- stack(Perito23[[1]], Perito23[[2]], Perito23[[3]])
+
+plot(Perito2)
+
+sample <- sampleRandom(Perito2, 10000)
+
+pca2 <- prcomp(sample)
+
+pca2
+
+pci2 <- predict(Perito2, pca2, index=c(1:2))
+
+plot(pci2[[1]])
+
+pcid <- as.data.frame(pci2[[1]], xy=T)
+ggplot() + geom_raster(pcid, mapping = aes(x=x, y=y, fill=PC1)) +
+  scale_fill_viridis() + ggtitle("Perito23_viridis")
+
+
