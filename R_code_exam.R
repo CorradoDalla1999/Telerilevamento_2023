@@ -25,6 +25,8 @@ Perito17
 
 # Let's see the results in natural colours with plotRGB (red-greem-blue) for the image of 2017
 plotRGB(Perito17, 1, 2, 3, stretch="Lin")
+#Too observe the number of cells
+ncell(Perito17)
 
 #At the same time is possible see the results with another strecht to see the difference
 plotRGB(Perito17, 1,2,3, stretch="Hist")
@@ -45,6 +47,7 @@ kcluster1 <- kmeans(singlenr1, centers = 2)
 kcluster1
 
 #...to assign new values to a raster object
+# setValues --> returns the values ​​obtained in image format by combining each individual color class (setvalues ​​passes continuous data in image format)
 Perito17class <- setValues(Perito17[[1]], kcluster1$cluster)
 
 Perito17class
@@ -107,6 +110,12 @@ Perito23
 
 # Let's see the results in natural colours with plotRGB (red-greem-blue) for the image of 2023
 plotRGB(Perito23, 1, 2, 3, stretch="Lin")
+
+#To observe the number of cells
+ncell(Perito23)
+
+#At the same time is possible see the results with another strecht to see the difference
+plotRGB(Perito23, 1,2,3, stretch="Hist")
 
 # I want to classify the immage in two classes
 # First I get all sigle value in the immage
