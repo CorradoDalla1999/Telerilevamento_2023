@@ -39,7 +39,7 @@ singlenr1
 
 View(singlenr1) # to see the single values divide in two columns
 
-#...and then classify. The function used to divide the pixel in different class based on the mean of the value, in two class
+# The function allows you to group pixels on classes based on the average of their values, the center of gravity is obtained and the distance between the unknown point and the center of gravity (of the individual classes) is measured
 kcluster1 <- kmeans(singlenr1, centers = 2)
 
 kcluster1
