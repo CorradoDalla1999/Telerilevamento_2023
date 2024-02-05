@@ -161,9 +161,9 @@ percentages2
 # Build graphs for comparison between 2017 and 2023
 cover <- c("glacier", "substrate")
 
-percent_2017 <- c(42, 58)
+percent_2017 <- c(58, 42)
 
-percent_2023 <- c(59, 42)
+percent_2023 <- c(59, 41)
 
 percentages <- data.frame (cover, percent_2017, percent_2023)
 
