@@ -31,6 +31,8 @@ plotRGB(Perito17, 1,2,3, stretch="Hist")
 
 # I want to classify the immage in two classes
 # First I get all sigle value in the immage
+#I have to (to use the classification function) transform the image values ​​into a series of continuous values ​​-> via getValues ​​(takes the values ​​from an image and puts them back on the printout)
+so #in so sono 3 bande da 2 milioni di pixel
 singlenr1 <- getValues(Perito17)
 
 singlenr1
