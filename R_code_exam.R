@@ -26,6 +26,9 @@ Perito17
 # Let's see the results in natural colours with plotRGB (red-greem-blue) for the image of 2017
 plotRGB(Perito17, 1, 2, 3, stretch="Lin")
 
+#At the same time is possible see the results with another strecht to see the difference
+plotRGB(Perito17, 1,2,3, stretch="Hist")
+
 # I want to classify the immage in two classes
 # First I get all sigle value in the immage
 singlenr1 <- getValues(Perito17)
