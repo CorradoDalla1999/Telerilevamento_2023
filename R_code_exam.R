@@ -103,7 +103,7 @@ percentages1= frequencies1 * 100 / total1
 
 percentages1
 # percent_substrate17: 42%
-# percent_glacier23: 58%
+# percent_glacier17: 58%
 
 #<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 
@@ -194,7 +194,7 @@ total2
 percentages2= frequencies2 * 100 / total2
 
 percentages2
-# percent_substrate17: 41%
+# percent_substrate23: 41%
 # percent_glacier23: 59%
 
 # Build graphs for comparison between 2017 and 2023:
