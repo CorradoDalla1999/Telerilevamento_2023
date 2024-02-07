@@ -1,6 +1,6 @@
 # Good morning everyone!
-# Below you will find my R code regarding the melting of glaciers in the Patagonia area (Argentina).
-# To best show the possible variations regarding the surface distribution of the glacier I chose two different images, one from 18/11/2017 and one from 4/11/2023.
+# Below you will find my R code regarding the melting of the Perito Moreno glaciers in the Calafate area (Patagonia, AR).
+# To best show the possible variations regarding the surface distribution of the glacier I chose two different images, one from 04/11/2017 and one from 01/11/2023.
 # The images were obtained through the Eo_browser_Sentinel website (https://apps.sentinel-hub.com).
 # I think that in six years the glacier system will have retreated and reduced in volume, but now we'll find out!
 
@@ -12,6 +12,8 @@
 # I will show the same product with Viridis scales color.
 
 # Now let's go!
+
+#<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 
 # Install and load the needed packages that i will use in the R_files:
 # install.packages("raster")
@@ -44,14 +46,14 @@ Perito17
 #source     : perito17_.png 
 #names      : perito17__1, perito17__2, perito17__3, perito17__4 
 
-# Let's see the results in natural colours with plotRGB (red-greem-blue) for the image of 2017:
+# Let's see the results in natural colours with plotRGB (red-green-blue) for the image of 2017:
 plotRGB(Perito17, 1, 2, 3, stretch="Lin")
 
 # Too observe the number of cells..
 ncell(Perito17)
 
 # At the same time is possible see the results with another strecht to see the difference:
-plotRGB(Perito17, 1,2,3, stretch="Hist")
+plotRGB(Perito17, 1, 2, 3, stretch="Hist")
 
 # I want to classify the immage in two classes.
 # First I get all sigle value in the immage.
@@ -63,7 +65,7 @@ singlenr1
 # To see the single values divide in two columns:
 View(singlenr1)            
 
-# The function allows you to group pixels on classes based on the average of their values, the center of gravity is obtained and the distance between the unknown point and the center of gravity (of the individual classes) is measured.
+# The function (kmeans) allows you to group pixels on classes based on the average of their values, the center of gravity is obtained and the distance between the unknown point and the center of gravity (of the individual classes) is measured.
 kcluster1 <- kmeans(singlenr1, centers = 2)
 
 kcluster1
@@ -134,7 +136,7 @@ Perito23
 #source     : perito23_.png 
 #names      : perito23__1, perito23__2, perito23__3, perito23__4
 
-# Let's see the results in natural colours with plotRGB (red-greem-blue) for the image of 2023.
+# Let's see the results in natural colours with plotRGB (red-green-blue) for the image of 2023.
 plotRGB(Perito23, 1, 2, 3, stretch="Lin")
 
 # To observe the number of cells:
