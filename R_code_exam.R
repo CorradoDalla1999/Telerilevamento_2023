@@ -85,7 +85,7 @@ Perito17class
 #names      : perito17__1 
 #values     : 1, 2  (min, max)
 
-# Choosing a colorRampPalette for show off of the classes.
+# Choosing a colorRampPalette for show off of the classes, the number 100 indicates the shade number.
 cl <- colorRampPalette(c('white','yellow','red'))(100)
 
 plot(Perito17class, col=cl)
@@ -107,8 +107,7 @@ percentages1
 # percent_substrate17: 42%
 # percent_glacier17: 58%
 
-#<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
-
+#<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>t
 # Now i'm going to do the same things but with the product of 2023:
 
 library(raster)                           # Analysis and modeling of spatial data.
