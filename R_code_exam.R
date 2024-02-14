@@ -57,7 +57,7 @@ plotRGB(Perito17, 1, 2, 3, stretch="Hist")
 
 # I want to classify the immage in two classes.
 # First I get all sigle value in the immage.
-# I have to (to use the classification function) transform the image values ​​into a series of continuous values ​​-> via getValues ​​(takes the values ​​from an image and puts them back on the printout).
+# In order to use the classification function, I have to transform the image values ​​into a series of continuous values ​​-> via getValues ​​(takes the values ​​from an image and puts them back on the printout).
 singlenr1 <- getValues(Perito17)
 
 singlenr1
@@ -91,7 +91,7 @@ cl <- colorRampPalette(c('white','yellow','red'))(100)
 plot(Perito17class, col=cl)
 
 # Now I need to estimate the frequencies of the different class. 
-# I need the total number of the cell in The immage:
+# I need the total number of the cell in the image:
 frequencies1 <- freq(Perito17class)
 
 frequencies1
@@ -100,14 +100,14 @@ total1 = ncell (Perito17)
 
 total1
 
-# Total number of pixel of the immage (I need the total number to do the percentages of the two different classes).
+# Total number of pixel of the image (I need the total number to do the percentages of the two different classes).
 percentages1= frequencies1 * 100 / total1
 
 percentages1
 # percent_substrate17: 42%
 # percent_glacier17: 58%
 
-#<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>t
+#<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 # Now i'm going to do the same things but with the product of 2023:
 
 library(raster)                           # Analysis and modeling of spatial data.
@@ -141,11 +141,11 @@ plotRGB(Perito23, 1, 2, 3, stretch="Lin")
 # To observe the number of cells:
 ncell(Perito23)
 
-# At the same time is possible see the results with another strecht to see the difference.
+# At the same time is possible see the results with another strecht to show the difference.
 plotRGB(Perito23, 1,2,3, stretch="Hist")
 
-# I want to classify the immage in two classes.
-# First I get all sigle value in the immage:
+# I want to classify the image in two classes.
+# First I get all sigle value in the image:
 singlenr2 <- getValues(Perito23)
 
 singlenr2
@@ -182,7 +182,7 @@ plot(Perito17class, col=cl, main="Year 2017")
 plot(Perito23class, col=cl, main="Year 2023")
 
 # Now I need to estimate the frequencies of the different class. 
-# I need the total number of the cell in The immage.
+# I need the total number of the cell in the image.
 frequencies2 <- freq(Perito23class)
 
 frequencies2
@@ -191,7 +191,7 @@ total2 = ncell (Perito23class)
 
 total2
 
-# Total number of pixel of the immage (I need the total number to do the percentages of the two different classes).
+# Total number of pixel of the image (I need the total number to do the percentages of the two different classes).
 percentages2= frequencies2 * 100 / total2
 
 percentages2
@@ -237,7 +237,7 @@ library(viridis)                          # Color maps designed to improve graph
 
 setwd("C:/Telerilevamento_lab")           # Let's set the working directory.
 
-Perito17 <- brick ("Perito17_.png")       # Brick is a fuction used for upload immage in R (import the create data).
+Perito17 <- brick ("Perito17_.png")       # Brick is a fuction used for upload image in R (import the create data).
 
 Perito17
 
